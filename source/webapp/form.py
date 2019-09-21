@@ -7,3 +7,7 @@ class EntryForm(forms.Form):
     email = forms.EmailField(required=True, label='Почта')
     text = forms.CharField(max_length=2000, required=True, label='Текст',widget=widgets.Textarea)
 
+
+
+
+

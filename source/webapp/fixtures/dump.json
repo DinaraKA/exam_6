@@ -60,6 +60,18 @@
   }
 },
 {
+  "model": "webapp.entry",
+  "pk": 14,
+  "fields": {
+    "name": "Nurdan Momun",
+    "email": "n@gmail.com",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem corporis dicta esse, est hic inventore magni natus obcaecati odio quidem rem reprehenderit, sint tempore tenetur voluptates voluptatibus? Enim minima sed sequi. Beatae commodi doloribus facere impedit qui sit unde veniam? Ducimus eligendi explicabo nemo perspiciatis quos sed soluta, unde!",
+    "created_at": "2019-09-21T10:32:25.647Z",
+    "updated_at": "2019-09-21T10:32:25.647Z",
+    "status": "active"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
