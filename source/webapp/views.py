@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Entry
 from webapp.form import EntryForm
 
@@ -24,3 +24,24 @@ def entry_create_view(request, *args, **kwargs):
             return redirect('index')
         else:
             return render(request, 'create.html', context={'form': form})
+
+def entry_edit(request, pk):
+    entry = get_object_or_404(Entry, pk=pk)
+    if request.method == 'GET':
+        form = EntryForm(data={
+            'name': entry.name,
+            'email': entry.email,
+            'text': entry.text
+        })
+        return render(request, 'edit.html', context={'form': form, 'entry': entry})
+    elif request.method == 'POST':
+        form = EntryForm(data=request.POST)
+        if form.is_valid():
+            entry.name = form.cleaned_data['name'],
+            entry.email = form.cleaned_data['email'],
+            entry.text = form.cleaned_data['text']
+            entry.save()
+            return redirect('index')
+        else:
+            return render(request, 'edit.html', context={'form': form, 'entry': entry})
+
