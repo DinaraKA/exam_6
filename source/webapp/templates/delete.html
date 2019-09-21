@@ -5,7 +5,7 @@
     <form method="POST" action="{% url 'entry_delete' entry.pk %}">
         {% csrf_token %}
         <div class="card text-center" style="width: 100%;">
-            <div class="card-header text-white bg-dark">Вы уверены, что хотите удалить задачу?</div>
+            <div class="card-header text-white bg-dark">Вы уверены, что хотите удалить запись?</div>
             <div class="card-body">
                 <h5 class="card-title">{{ entry.name }}</h5>
                 <p class="card-text">{{ entry.text }}</p>
