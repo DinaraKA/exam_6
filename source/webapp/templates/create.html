@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить новую запись{% endblock %}
+{% block content %}
+    <h1>Добавить новую запись</h1>
+    <form method="POST" action="{% url 'entry_add' %}">
+        {% include 'partial/form.html' with button_text="Добавить" %}
+    </form>
+{% endblock %}
