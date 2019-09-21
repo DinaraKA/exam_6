@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+    <li><a href="{% url 'entry_add' %}">Добавить запись</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Гостевая книга</h1>
+    {% for entry in entries %}
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h3 class="card-title">{{ entry.name }}</h3>
+                <p class="card-text">{{ entry.text }}</p>
+                <button type="submit" class="btn btn-dark" value="Submit"><a href="{% url 'entry_edit' entry.pk %}">Обновить</a></button>
+                <button type="submit" class="btn btn-dark" value="Submit"><a href="{%  url 'entry_delete' entry.pk %}">Удалить</a></button>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
