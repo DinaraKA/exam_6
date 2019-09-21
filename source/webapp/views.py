@@ -45,3 +45,11 @@ def entry_edit(request, pk):
         else:
             return render(request, 'edit.html', context={'form': form, 'entry': entry})
 
+def delete_view(request, pk):
+    entry = get_object_or_404(Entry, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'delete.html', context={'entry':entry})
+    elif request.method == 'POST':
+        entry.delete()
+        return redirect('index')
+
