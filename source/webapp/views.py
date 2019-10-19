@@ -25,6 +25,7 @@ def entry_create_view(request, *args, **kwargs):
         else:
             return render(request, 'create.html', context={'form': form})
 
+
 def entry_edit(request, pk):
     entry = get_object_or_404(Entry, pk=pk)
     if request.method == 'GET':
@@ -37,8 +38,8 @@ def entry_edit(request, pk):
     elif request.method == 'POST':
         form = EntryForm(data=request.POST)
         if form.is_valid():
-            entry.name = form.cleaned_data['name'],
-            entry.email = form.cleaned_data['email'],
+            entry.name = form.cleaned_data['name']
+            entry.email = form.cleaned_data['email']
             entry.text = form.cleaned_data['text']
             entry.save()
             return redirect('index')
